@@ -4,6 +4,12 @@
 #include <string>
 #include <sstream>
 
+namespace
+{
+	const int FIZZ_VALUE = 3;
+	const int BUZZ_VALUE = 5;
+	const int FIZZ_BUZZ_VALUE = 15;
+}
 
 FizzBuzz::FizzBuzz(void)
 {
@@ -22,6 +28,10 @@ void FizzBuzz::call()
 std::string FizzBuzz::calculate(const int input) const
 {
 	std::ostringstream stream;
+	if (0 == input % FIZZ_VALUE)
+	{
+		return "Fizz";
+	}
 	stream << input;
 	return stream.str();
 }
