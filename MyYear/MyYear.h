@@ -1,11 +1,16 @@
 #pragma once
+#include <iostream>
+
 class MyYear
 {
 public:
-	MyYear();
+	explicit MyYear(const int year);
 	~MyYear();
 
+	std::string toString() const;
+	bool isLeap() const;
+
 private:
-//	const int year_;
+	const int year_;
 };
 
