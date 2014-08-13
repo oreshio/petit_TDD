@@ -32,6 +32,14 @@ std::string FizzBuzz::calculate(const int input) const
 	{
 		return "Fizz";
 	}
+	else if (0 == input % BUZZ_VALUE)
+	{
+		return "Buzz";
+	}
+	else if (0 == input % FIZZ_BUZZ_VALUE)
+	{
+		return "FizzBuzz";
+	}
 	stream << input;
 	return stream.str();
 }
