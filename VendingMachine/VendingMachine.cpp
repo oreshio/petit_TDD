@@ -22,3 +22,11 @@ std::string VendingMachine::getTotal() const
 	stream << money_;
 	return stream.str();
 }
+
+std::string VendingMachine::returnMoney()
+{
+	std::ostringstream stream;
+	stream << money_;
+	money_ = 0;
+	return stream.str();
+}

@@ -18,6 +18,7 @@ public:
 
 	void putMoney(const int money);
 	std::string getTotal() const;
+	std::string returnMoney();
 
 private:
 	int money_;
