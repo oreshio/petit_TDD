@@ -15,3 +15,8 @@ void FizzBuzz::call()
 {
 	std::cout << "Called";
 }
+
+std::string FizzBuzz::calculate(const int input) const
+{
+	return "Fail";
+}
