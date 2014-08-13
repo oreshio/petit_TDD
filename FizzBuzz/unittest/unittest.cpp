@@ -1,10 +1,12 @@
 #include <iostream>
 
 #include <gtest/gtest.h>
+#include "FizzBuzz.h"
 
-TEST(testcase, testname)
+TEST(FizzBuzz, Test1)
 {
-	std::cout << "testcase" << std::endl;
+	FizzBuzz testee;
+	EXPECT_EQ("1", testee.calculate(1));
 }
 
 //// Run all the tests that were declared with TEST()
