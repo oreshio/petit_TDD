@@ -2,6 +2,11 @@
 
 #include <gtest/gtest.h>
 
-TEST(MyYear, Test1)
+#include "../MyYear.h"
+
+TEST(MyYear, Test_Constructor)
 {
+	MyYear testee(1978);
+	EXPECT_EQ("1978", testee.toString());
+	EXPECT_EQ(false, testee.isLeap());
 }
