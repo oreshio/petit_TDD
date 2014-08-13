@@ -28,17 +28,17 @@ void FizzBuzz::call()
 std::string FizzBuzz::calculate(const int input) const
 {
 	std::ostringstream stream;
-	if (0 == input % FIZZ_VALUE)
+	if (0 == input % FIZZ_BUZZ_VALUE)
+	{
+		return "FizzBuzz";
+	}
+	else if (0 == input % FIZZ_VALUE)
 	{
 		return "Fizz";
 	}
 	else if (0 == input % BUZZ_VALUE)
 	{
 		return "Buzz";
-	}
-	else if (0 == input % FIZZ_BUZZ_VALUE)
-	{
-		return "FizzBuzz";
 	}
 	stream << input;
 	return stream.str();
