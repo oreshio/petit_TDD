@@ -1,6 +1,9 @@
 #include "StdAfx.h"
 #include "FizzBuzz.h"
 
+#include <string>
+#include <sstream>
+
 
 FizzBuzz::FizzBuzz(void)
 {
@@ -18,5 +21,7 @@ void FizzBuzz::call()
 
 std::string FizzBuzz::calculate(const int input) const
 {
-	return "Fail";
+	std::ostringstream stream;
+	stream << input;
+	return stream.str();
 }
