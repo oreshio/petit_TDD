@@ -16,7 +16,7 @@ public:
 	VendingMachine();
 	~VendingMachine();
 
-	void putMoney(const int money);
+	std::string putMoney(const int money);
 	std::string getTotal() const;
 	std::string returnMoney();
 

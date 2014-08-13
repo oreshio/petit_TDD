@@ -65,6 +65,9 @@
   <ItemGroup>
     <ClCompile Include="VendingMachine.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Reatme.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
