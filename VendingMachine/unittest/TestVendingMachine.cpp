@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "../VendingMachine.h"
 
+using namespace Money;
 
 TEST(VendingMachine, Test_Constructor)
 {
