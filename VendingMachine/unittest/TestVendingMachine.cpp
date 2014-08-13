@@ -21,4 +21,7 @@ TEST(VendingMachine_Step0, putMoney)
 	EXPECT_EQ("660", testee.getTotal());
 	testee.putMoney(BILL_1000);
 	EXPECT_EQ("1660", testee.getTotal());
+
+	EXPECT_EQ("1660", testee.returnMoney());
+	EXPECT_EQ("0", testee.getTotal());
 }
