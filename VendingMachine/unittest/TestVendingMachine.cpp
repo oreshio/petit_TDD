@@ -101,3 +101,16 @@ TEST(VendingMachine_Step3, buy_2)
 	EXPECT_EQ(false, testee.buy("Cola"));
 	EXPECT_EQ(false, testee.canBuy("Cola"));
 }
+
+TEST(VendingMachine_Step3, getSales)
+{
+	VendingMachine testee;
+	EXPECT_EQ(0, testee.getSales());
+	EXPECT_EQ("", testee.putMoney(BILL_1000));
+	EXPECT_EQ("1000", testee.getTotal());
+	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(120, testee.getSales());
+	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(240, testee.getSales());
+}
+
