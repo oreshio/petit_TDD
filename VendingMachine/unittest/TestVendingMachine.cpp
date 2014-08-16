@@ -41,3 +41,10 @@ TEST(VendingMachine_Step1, putAndReturnMoney)
 	EXPECT_EQ("1010", testee.returnMoney());
 	EXPECT_EQ("0", testee.getTotal());
 }
+
+
+TEST(VendingMachine_Step2, checkStock)
+{
+	VendingMachine testee;
+	EXPECT_EQ("120,Cola,5", testee.checkStock());
+}
