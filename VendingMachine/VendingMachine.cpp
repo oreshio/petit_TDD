@@ -4,9 +4,21 @@
 
 using namespace Money;
 
+namespace
+{
+	std::string toString(const int value)
+	{
+		std::ostringstream stream;
+		stream << value;
+		return stream.str();
+	}
+}
+
 VendingMachine::VendingMachine()
 	: money_()
+	, products_()
 {
+	products_["Cola"] = ProductData(120, 5);
 }
 
 
@@ -35,16 +47,12 @@ std::string VendingMachine::putMoney(const int money)
 			return std::string();
 		}
 	}
-	std::ostringstream stream;
-	stream << money;
-	return stream.str();
+	return toString(money);
 }
 
 std::string VendingMachine::getTotal() const
 {
-	std::ostringstream stream;
-	stream << money_;
-	return stream.str();
+	return toString(money_);
 }
 
 std::string VendingMachine::returnMoney()
@@ -54,3 +62,23 @@ std::string VendingMachine::returnMoney()
 	money_ = 0;
 	return stream.str();
 }
+
+std::string VendingMachine::checkStock() const
+{
+	std::string totalOutput;
+	for (std::map<std::string, ProductData>::const_iterator iterator = products_.begin();
+		 iterator != products_.end();
+		 ++iterator)
+	{
+		std::string output;
+		output.append(toString(iterator->second.priceOfUnit_));
+		output.append(",");
+		output.append(iterator->first);
+		output.append(",");
+		output.append(toString(iterator->second.number_));
+
+		totalOutput.append(output);
+	}
+	return totalOutput;
+}
+

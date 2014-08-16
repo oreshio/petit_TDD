@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <map>
 
 namespace Money
 {
@@ -13,14 +14,29 @@ namespace Money
 class VendingMachine
 {
 public:
+	struct ProductData
+	{
+		ProductData::ProductData()
+		: priceOfUnit_(0)
+		, number_(0) {}
+		ProductData::ProductData(const int priceOfUnit, const int number)
+		: priceOfUnit_(priceOfUnit)
+		, number_(number) {}
+		ProductData::~ProductData(){}
+		int priceOfUnit_;
+		int number_;
+	};
+
 	VendingMachine();
 	~VendingMachine();
 
 	std::string putMoney(const int money);
 	std::string getTotal() const;
 	std::string returnMoney();
+	std::string checkStock() const;
 
 private:
 	int money_;
+	std::map<std::string, ProductData> products_;
 };
 
