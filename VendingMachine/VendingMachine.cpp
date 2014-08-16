@@ -89,7 +89,14 @@ bool VendingMachine::canBuy(const std::string productName) const
 	{
 		return false;
 	}
-
+	if (0 == iterator->second.number_)
+	{
+		return false;
+	}
+	if (money_ < iterator->second.priceOfUnit_)
+	{
+		return false;
+	}
 	return true;
 }
 
