@@ -100,3 +100,18 @@ bool VendingMachine::canBuy(const std::string productName) const
 	return true;
 }
 
+bool VendingMachine::buy(const std::string productName)
+{
+	if (!canBuy(productName))
+	{
+		return false;
+	}
+	std::map<std::string, ProductData>::iterator iterator = products_.find(productName);
+	if (iterator == products_.end())
+	{
+		return false;
+	}
+	--(iterator->second.number_);
+	money_ -= iterator->second.priceOfUnit_;
+	return true;
+}
