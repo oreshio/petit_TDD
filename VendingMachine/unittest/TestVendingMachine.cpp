@@ -82,7 +82,7 @@ TEST(VendingMachine_Step3, buy_1)
 	EXPECT_EQ("0", testee.getTotal());
 }
 
-TEST(VendingMachine_Step3, buy_2)
+TEST(VendingMachine_Step3, buy_returnMoney)
 {
 	VendingMachine testee;
 	EXPECT_EQ("", testee.putMoney(BILL_1000));
@@ -100,9 +100,12 @@ TEST(VendingMachine_Step3, buy_2)
 	EXPECT_EQ("400", testee.getTotal());
 	EXPECT_EQ(false, testee.buy("Cola"));
 	EXPECT_EQ(false, testee.canBuy("Cola"));
+
+	EXPECT_EQ("400", testee.returnMoney());
+	EXPECT_EQ("0", testee.getTotal());
 }
 
-TEST(VendingMachine_Step3, getSales)
+TEST(VendingMachine_Step3, getSales_returnMoney)
 {
 	VendingMachine testee;
 	EXPECT_EQ(0, testee.getSales());
@@ -111,6 +114,10 @@ TEST(VendingMachine_Step3, getSales)
 	EXPECT_EQ(true, testee.buy("Cola"));
 	EXPECT_EQ(120, testee.getSales());
 	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(240, testee.getSales());
+
+	EXPECT_EQ("760", testee.returnMoney());
+	EXPECT_EQ("0", testee.getTotal());
 	EXPECT_EQ(240, testee.getSales());
 }
 
