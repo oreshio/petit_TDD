@@ -118,7 +118,7 @@ bool VendingMachine::buy(const std::string productName)
 
 int VendingMachine::getSales() const
 {
-	return 0;
+	return sales_;
 }
 
 void VendingMachine::trade(const int price)
