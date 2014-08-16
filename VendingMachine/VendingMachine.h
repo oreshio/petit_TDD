@@ -36,9 +36,14 @@ public:
 	std::string checkStock() const;
 	bool canBuy(const std::string productName) const;
 	bool buy(const std::string productName);
+	int getSales() const;
+
+private:
+	void trade(const int price);
 
 private:
 	int money_;
+	int sales_;
 	std::map<std::string, ProductData> products_;
 };
 

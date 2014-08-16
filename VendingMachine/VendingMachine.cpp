@@ -16,6 +16,7 @@ namespace
 
 VendingMachine::VendingMachine()
 	: money_()
+	, sales_()
 	, products_()
 {
 	products_["Cola"] = ProductData(120, 5);
@@ -57,10 +58,9 @@ std::string VendingMachine::getTotal() const
 
 std::string VendingMachine::returnMoney()
 {
-	std::ostringstream stream;
-	stream << money_;
+	std::string returnMoney = toString(money_);
 	money_ = 0;
-	return stream.str();
+	return returnMoney;
 }
 
 std::string VendingMachine::checkStock() const
@@ -112,6 +112,17 @@ bool VendingMachine::buy(const std::string productName)
 		return false;
 	}
 	--(iterator->second.number_);
-	money_ -= iterator->second.priceOfUnit_;
+	trade(iterator->second.priceOfUnit_);
 	return true;
+}
+
+int VendingMachine::getSales() const
+{
+	return 0;
+}
+
+void VendingMachine::trade(const int price)
+{
+	money_ -= price;
+	sales_ += price;
 }
