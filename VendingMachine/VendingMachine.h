@@ -34,6 +34,7 @@ public:
 	std::string getTotal() const;
 	std::string returnMoney();
 	std::string checkStock() const;
+	bool canBuy(const std::string productName) const;
 
 private:
 	int money_;

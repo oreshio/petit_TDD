@@ -82,3 +82,14 @@ std::string VendingMachine::checkStock() const
 	return totalOutput;
 }
 
+bool VendingMachine::canBuy(const std::string productName) const
+{
+	std::map<std::string, ProductData>::const_iterator iterator = products_.find(productName);
+	if (iterator == products_.end())
+	{
+		return false;
+	}
+
+	return true;
+}
+

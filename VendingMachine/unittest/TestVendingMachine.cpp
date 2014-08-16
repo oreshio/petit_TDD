@@ -57,4 +57,5 @@ TEST(VendingMachine_Step3, canBuy)
 	EXPECT_EQ(false, testee.canBuy("Cola"));
 	EXPECT_EQ("", testee.putMoney(COIN_100));
 	EXPECT_EQ(true, testee.canBuy("Cola"));
+	EXPECT_EQ(false, testee.canBuy("RedBull"));
 }
