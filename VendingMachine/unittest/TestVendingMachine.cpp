@@ -48,3 +48,13 @@ TEST(VendingMachine_Step2, checkStock)
 	VendingMachine testee;
 	EXPECT_EQ("120,Cola,5", testee.checkStock());
 }
+
+TEST(VendingMachine_Step3, canBuy)
+{
+	VendingMachine testee;
+	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ("", testee.putMoney(COIN_50));
+	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ("", testee.putMoney(COIN_100));
+	EXPECT_EQ(true, testee.canBuy("Cola"));
+}
