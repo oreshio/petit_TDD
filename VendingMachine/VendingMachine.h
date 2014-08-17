@@ -36,6 +36,7 @@ public:
 	std::string returnMoney();
 	std::vector<std::string> checkStock() const;
 	bool canBuy(const std::string productName) const;
+	std::vector<std::string> canBuyProductList() const;
 	bool buy(const std::string productName);
 	int getSales() const;
 

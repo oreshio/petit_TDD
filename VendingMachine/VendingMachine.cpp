@@ -102,6 +102,21 @@ bool VendingMachine::canBuy(const std::string productName) const
 	return true;
 }
 
+std::vector<std::string> VendingMachine::canBuyProductList() const
+{
+	std::vector<std::string> productList;
+	for (std::map<std::string, ProductData>::const_iterator iterator = products_.begin();
+		 iterator != products_.end();
+		 ++iterator)
+	{
+		if (canBuy(iterator->first))
+		{
+			productList.push_back(iterator->first);
+		}
+	}
+	return productList;
+}
+
 bool VendingMachine::buy(const std::string productName)
 {
 	if (!canBuy(productName))
