@@ -46,11 +46,10 @@ TEST(VendingMachine_Step1, putAndReturnMoney)
 TEST(VendingMachine_Step2, checkStock)
 {
 	VendingMachine testee;
-	EXPECT_EQ("120,コーラ,5", testee.checkStock());
-	//EXPECT_EQ(3, testee.checkStock().size());
-	//EXPECT_EQ("120,コーラ,5", testee.checkStock().at(0));
-	//EXPECT_EQ("200,レッドブル,5", testee.checkStock().at(1));
-	//EXPECT_EQ("100,水,5", testee.checkStock().at(2));
+	EXPECT_EQ(3, testee.checkStock().size());
+	EXPECT_EQ("120,コーラ,5", testee.checkStock().at(0));
+	EXPECT_EQ("200,レッドブル,5", testee.checkStock().at(1));
+	EXPECT_EQ("100,水,5", testee.checkStock().at(2));
 }
 
 TEST(VendingMachine_Step3, canBuy_1)
