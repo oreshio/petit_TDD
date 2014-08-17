@@ -124,6 +124,29 @@ TEST(VendingMachine_Step3, getSales_returnMoney)
 	EXPECT_EQ(240, testee.getSales());
 }
 
-TEST(VendingMachine_Step4, checkStock)
+TEST(VendingMachine_Step4, canBuyProductList)
 {
+	VendingMachine testee;
+	EXPECT_EX(0, testee.canBuyProductList().size());
+	testee.putMoney(COIN_50);
+	EXPECT_EX(0, testee.canBuyProductList().size());
+	testee.putMoney(COIN_50);
+	EXPECT_EX(1, testee.canBuyProductList().size());
+	EXPECT_EX("水", testee.canBuyProductList().at(0));
+	testee.putMoney(COIN_10);
+	EXPECT_EX(1, testee.canBuyProductList().size());
+	EXPECT_EX("水", testee.canBuyProductList().at(0));
+	testee.putMoney(COIN_10);
+	EXPECT_EX(2, testee.canBuyProductList().size());
+	EXPECT_EX("コーラ", testee.canBuyProductList().at(0));
+	EXPECT_EX("水", testee.canBuyProductList().at(1));
+	testee.putMoney(COIN_10);
+	EXPECT_EX(2, testee.canBuyProductList().size());
+	EXPECT_EX("コーラ", testee.canBuyProductList().at(0));
+	EXPECT_EX("水", testee.canBuyProductList().at(1));
+	testee.putMoney(COIN_100);
+	EXPECT_EX(3, testee.canBuyProductList().size());
+	EXPECT_EX("コーラ", testee.canBuyProductList().at(0));
+	EXPECT_EX("レッドブル", testee.canBuyProductList().at(1));
+	EXPECT_EX("水", testee.canBuyProductList().at(2));
 }
