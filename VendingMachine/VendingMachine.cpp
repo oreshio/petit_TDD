@@ -20,6 +20,8 @@ VendingMachine::VendingMachine()
 	, products_()
 {
 	products_["コーラ"] = ProductData(120, 5);
+	products_["レッドブル"] = ProductData(200, 5);
+	products_["水"] = ProductData(100, 5);
 }
 
 
