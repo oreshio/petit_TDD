@@ -46,28 +46,32 @@ TEST(VendingMachine_Step1, putAndReturnMoney)
 TEST(VendingMachine_Step2, checkStock)
 {
 	VendingMachine testee;
-	EXPECT_EQ("120,Cola,5", testee.checkStock());
+	EXPECT_EQ("120,コーラ,5", testee.checkStock());
+	//EXPECT_EQ(3, testee.checkStock().size());
+	//EXPECT_EQ("120,コーラ,5", testee.checkStock().at(0));
+	//EXPECT_EQ("200,レッドブル,5", testee.checkStock().at(1));
+	//EXPECT_EQ("100,水,5", testee.checkStock().at(2));
 }
 
 TEST(VendingMachine_Step3, canBuy_1)
 {
 	VendingMachine testee;
-	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ(false, testee.canBuy("コーラ"));
 	EXPECT_EQ("", testee.putMoney(COIN_50));
-	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ(false, testee.canBuy("コーラ"));
 	EXPECT_EQ("", testee.putMoney(COIN_100));
-	EXPECT_EQ(true, testee.canBuy("Cola"));
-	EXPECT_EQ(false, testee.canBuy("RedBull"));
+	EXPECT_EQ(true, testee.canBuy("コーラ"));
+	EXPECT_EQ(false, testee.canBuy("レッドブル"));
 }
 
 TEST(VendingMachine_Step3, canBuy_2)
 {
 	VendingMachine testee;
-	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ(false, testee.canBuy("コーラ"));
 	EXPECT_EQ("", testee.putMoney(COIN_10));
 	EXPECT_EQ("", testee.putMoney(COIN_10));
 	EXPECT_EQ("", testee.putMoney(COIN_100));
-	EXPECT_EQ(true, testee.canBuy("Cola"));
+	EXPECT_EQ(true, testee.canBuy("コーラ"));
 }
 
 TEST(VendingMachine_Step3, buy_1)
@@ -77,8 +81,8 @@ TEST(VendingMachine_Step3, buy_1)
 	EXPECT_EQ("", testee.putMoney(COIN_10));
 	EXPECT_EQ("", testee.putMoney(COIN_100));
 	EXPECT_EQ("120", testee.getTotal());
-	EXPECT_EQ(true, testee.canBuy("Cola"));
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.canBuy("コーラ"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("0", testee.getTotal());
 }
 
@@ -87,19 +91,19 @@ TEST(VendingMachine_Step3, buy_returnMoney)
 	VendingMachine testee;
 	EXPECT_EQ("", testee.putMoney(BILL_1000));
 	EXPECT_EQ("1000", testee.getTotal());
-	EXPECT_EQ(true, testee.canBuy("Cola"));
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.canBuy("コーラ"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("880", testee.getTotal());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("760", testee.getTotal());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("640", testee.getTotal());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("520", testee.getTotal());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ("400", testee.getTotal());
-	EXPECT_EQ(false, testee.buy("Cola"));
-	EXPECT_EQ(false, testee.canBuy("Cola"));
+	EXPECT_EQ(false, testee.buy("コーラ"));
+	EXPECT_EQ(false, testee.canBuy("コーラ"));
 
 	EXPECT_EQ("400", testee.returnMoney());
 	EXPECT_EQ("0", testee.getTotal());
@@ -111,9 +115,9 @@ TEST(VendingMachine_Step3, getSales_returnMoney)
 	EXPECT_EQ(0, testee.getSales());
 	EXPECT_EQ("", testee.putMoney(BILL_1000));
 	EXPECT_EQ("1000", testee.getTotal());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ(120, testee.getSales());
-	EXPECT_EQ(true, testee.buy("Cola"));
+	EXPECT_EQ(true, testee.buy("コーラ"));
 	EXPECT_EQ(240, testee.getSales());
 
 	EXPECT_EQ("760", testee.returnMoney());
@@ -121,3 +125,6 @@ TEST(VendingMachine_Step3, getSales_returnMoney)
 	EXPECT_EQ(240, testee.getSales());
 }
 
+TEST(VendingMachine_Step4, checkStock)
+{
+}

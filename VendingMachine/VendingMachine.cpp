@@ -19,7 +19,7 @@ VendingMachine::VendingMachine()
 	, sales_()
 	, products_()
 {
-	products_["Cola"] = ProductData(120, 5);
+	products_["ÉRÅ[Éâ"] = ProductData(120, 5);
 }
 
 
