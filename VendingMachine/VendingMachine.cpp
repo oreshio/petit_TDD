@@ -63,9 +63,9 @@ std::string VendingMachine::returnMoney()
 	return returnMoney;
 }
 
-std::string VendingMachine::checkStock() const
+std::vector<std::string> VendingMachine::checkStock() const
 {
-	std::string totalOutput;
+	std::vector<std::string> totalOutput;
 	for (std::map<std::string, ProductData>::const_iterator iterator = products_.begin();
 		 iterator != products_.end();
 		 ++iterator)
@@ -77,7 +77,7 @@ std::string VendingMachine::checkStock() const
 		output.append(",");
 		output.append(toString(iterator->second.number_));
 
-		totalOutput.append(output);
+		totalOutput.push_back(output);
 	}
 	return totalOutput;
 }

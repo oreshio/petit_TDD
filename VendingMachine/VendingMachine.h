@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <map>
+#include <vector>
 
 namespace Money
 {
@@ -33,7 +34,7 @@ public:
 	std::string putMoney(const int money);
 	std::string getTotal() const;
 	std::string returnMoney();
-	std::string checkStock() const;
+	std::vector<std::string> checkStock() const;
 	bool canBuy(const std::string productName) const;
 	bool buy(const std::string productName);
 	int getSales() const;
